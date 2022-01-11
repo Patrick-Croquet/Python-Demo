@@ -30,4 +30,6 @@ pair = lambda a: a % 2 == 0
 divise = lambda a, b: a % b == 0
 
 test(pair, 7)
+test(pair, 8)
 test(divise, 7, 3)
+test(divise, 9, 3)
