@@ -1,0 +1,21 @@
+Coder en Python 
+
+Exo 1: Ecrire un programme qui demande à l’utilisateur 3 nombres entiers positifs et plus petits que 40000, puis effectue la moyenne de ces trois nombres et affiche la valeur de cette moyenne. Le code n'effectuera pas de vérification concernant l'intervalle de 0 à 40000.
+
+Exo 2: Ecrire un programme qui demande à l'utilisateur de saisir un nombre entier et qui indique selon le cas : Ce nombre est positif ou nul. Ce nombre est négatif 
+
+Exo 3: Ecrire un programme qui réalise la saisie par l’utilisateur d’un nombre et qui indique si ce nombre est divisible par 3 ou pas. On pourra par exemple utiliser le modulo (%) 
+
+Exo 4: Écrire un programme qui détermine la valeur de la racine carrée d’un entier sans jamais utiliser la fonction racine carrée. 
+On procédera par approximation successive. 
+Prenons par exemple la racine carrée de N=10. 
+On teste la valeur 5. 5x5 = 25 résultat supérieur à 10. 
+Donc le nombre recherché sera compris entre 0 et 5 
+On teste 2,5. 2,5 x 2,5 = 6,25 qui est inférieur à 10. 
+Donc le nombre recherché sera compris entre 2,5 et 5. 
+On teste donc (2,5+5)/2= 3,75. 3,75x3,75 vaut 14,0625 donc plus grand que 10. Le nombre recherché est donc entre 2,5 et 3,75. 
+On teste (2,5+3,75)/2 qui vaut 3,125. 3,125*3,125 vaut 9,765625. 
+Donc le nombre recherchée est entre 3,125 et 3,75. On teste (3,125+3,75)/2 etc. 
+On remarque qu’à chaque fois, on obtient deux nombres NBas et NHaut qui encadre la valeur de la racine carrée. 
+L’intervalle entre ces deux nombres devient de plus en plus petit. On arrêtera les itérations du calcul lorsque la différence entre Nbas et NHaut sera plus petit que 0,001.
+
