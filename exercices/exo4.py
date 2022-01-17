@@ -3,7 +3,6 @@ n = int(input('Entrez un nombre entier : '))
 intervalle = .001
 NBas = 0
 NHaut = n
-i = 0
 
 while NHaut - NBas > intervalle:
     Valeur = (NHaut + NBas)/2

@@ -10,9 +10,8 @@ print("troisième variable = ", variable3)
 if variable1 < 0 or variable2 < 0 or variable3 < 0:
     print("L'une des valeurs entrées est inférieure à 0") 
 
-if variable1 < 40000 or variable2 < 40000 or variable3 < 40000:
+elif variable1 < 40000 and variable2 < 40000 and variable3 < 40000:
     total = (variable1 + variable2 + variable3)
     print("Total = ", total)
-
     resultat = total / 3
     print("La moyenne des valeurs entrées est: " + str(resultat))
