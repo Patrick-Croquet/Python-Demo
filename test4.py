@@ -15,7 +15,7 @@ somme=addition(10, 5) # Renvoie 15
 # addition(10)
 print(somme)
 # addition()
-print(addition(10, 5))
+print(addition(10.5, 5.2))
 
 # def saluer(nom):
 #    print('Bonjour ' + nom)

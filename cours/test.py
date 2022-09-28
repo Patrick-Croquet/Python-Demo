@@ -79,12 +79,12 @@ print(7 > 5 > 1) # Affiche True
 #         continue
 #     print(i)
 
-i = 1
+i = 0
 while i < 10:
     print(i)
     i += 1
 
 print('--------')
 
-for i in range(1,10):
+for i in range(0,10):
     print(i)    
