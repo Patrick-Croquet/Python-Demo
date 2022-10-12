@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Script permettant au robot turtle de suivre les instructions contenues dans 
-un fichier question6.py
+un fichier .txt
 
 Code à remplir dans la section script
 
@@ -62,57 +62,65 @@ def RobotDeposer():
 zone du code à remplir
 """
 
-"""
-Initialiser le robot en position (0,0)
-"""
-
 RobotInit(0, 0)
 
-"""
-Initialiser deux variables x1 et y1 valant 100 et 300 respectivement et une variable d pour que le robot dépose au point si la variable vaut 1.
+S = 1
+
+x1 = 100 
+y1 = 300
+
+
+Time = RobotDeplacer(x1, y1)
+totalTime = 0
 
 """
-x1, y1 = 100, 300
+print(T)
 
-d = 1
-
-list1 = [-50, -30, 0, 50, 130]
-list2 = [-50, 30, 0, 200, 20]
-list3 = [0, 0, 1, 1, 0]
+x2 = -50 
+y2 = -50
 
 
-def action(x, y, d):
-    """
-    Déplacer le robot pour atteindre le point de coordonnées (x1, y1).
-    """
+T = RobotDeplacer(x2, y2)
+
+print(T)
+
+
+
+def V (x, y, d):
     
-    Time = RobotDeplacer(x1, y1)
-    
-    """
-    Afficher le temps nécessaire pour effectuer cette action
-    """
-    print("le temps nécessaire pour effectuer cette action : " + str(Time) + " ms")
-    
-    
-    if (d == 1):
-        print("le robot dépose au point")
-    else:
-        print("le robot ne dépose pas au point")
-        
+    T = RobotDeplacer(x, y)
 
-"""
-appeler la simulation "action".
-"""        
+    if d == 1:
+        RobotDeposer()
+    
+    return(T)
+"""    
+    
+E1 = [-50, -30, 0, 50, 130]
+V1 = [-50, 30, 0, 200, 20]
+E2 = [0, 0, 1, 1, 0]
 
-action(x1,y1,d)    
-"""
-appeler la fin de la simulation.
-"""
+"Ajout de la nouvelle liste"
 
+N0 = []
+
+for i in range(5):
+    x = E1[i]
+    y = V1[i]
+
+    Time = RobotDeplacer(x, y)   
+    print(Time)
+    totalTime += Time
+    
+    d = E2[i]
+    print(d)
+    
+print(totalTime)
+
+ 
 RobotFerm()
 
+    
 
-
-
-
-
+    
+    
