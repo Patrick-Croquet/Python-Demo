@@ -1,0 +1,6 @@
+grille 2
+
+format : 6*6
+taille case : 60*60
+depart : -150,-150
+

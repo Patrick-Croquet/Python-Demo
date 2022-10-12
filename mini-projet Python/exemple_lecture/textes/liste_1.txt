@@ -1,0 +1,12 @@
+exemple de lecture d'un fichier texte
+le texte situé ici ne sera pas lu
+cette zone sert à décrire le fichier
+
+debut
+val:3
+val:75
+val:848
+kat:58
+kot:87
+val:97
+fin

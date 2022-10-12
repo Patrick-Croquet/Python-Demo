@@ -1,0 +1,6 @@
+grille 1
+
+format : 7*7
+taille case : 50*50
+depart : -150,-150
+
