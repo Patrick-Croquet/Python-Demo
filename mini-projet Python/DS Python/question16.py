@@ -69,56 +69,43 @@ Initialiser le robot en position (0,0)
 RobotInit(0, 0)
 
 """
-Initialiser deux variables x1 et y1 valant 100 et 300 respectivement et une variable d pour que le robot dépose au point si la variable vaut 1.
+Initialiser deux variables n et m valant 3 et 4 respectivement.
 
-
-x1, y1 = 100, 300
-
-d = 1
-"""
-"""
-Listes des coordonnées x et y, liste des points de passage (0) et de dépose(1) 
 """
 
-listx = [-50, -30, 0, 50, 130]
-listy = [-50, 30, 0, 200, 20]
-listd = [0, 0, 1, 1, 0]
+n = int(input("Entrer le nombre de lignes :"))
+m = int(input("Entrer le nombre de colonnes :"))
 
-def action(x, y, d):
-    """
-    Déplacer le robot pour atteindre le point de coordonnées (x1, y1).
-    """
-    
-    Time = RobotDeplacer(x, y)
-    
-    """
-    Afficher le temps nécessaire pour effectuer cette action
-    """
-    print("le temps nécessaire pour effectuer cette action : " + str(Time) + " ms")
-    
-    
-    if (d == 1):
-        print("le robot dépose au point")
-        Time = RobotDeposer()
-        print("le temps nécessaire pour effectuer cette dépose : " + str(Time) + " ms")
+print(str(n) +" lignes et " + str(m) + " colonnes")
+
+"""
+Initialiser une matrice (type numpy.array) remplie de 0 de taille n*m.
+"""
+
+matrice = np.zeros((n,m))
+
+print (matrice)
+   
+for j in range(0,n):
+    if (j%2 == 0):       # si je suis sur une ligne impaire je parcours de gauche à droite. Attention le premier élément d'un tableau est à l'indice 0
+        for i in range(0,m,1):
+            matrice[j,i] = 1
     else:
-        print("le robot ne dépose pas au point")
+        for i in range(m-1,-1,-1): # si je suis sur une ligne paire je parcours de droite à gauche. 
+            matrice[j,i] = 1        
+
+
+for j in range(0,n):
+    for i in range(0,m):
+        matrice[j,i] = 1
+        print(((n-1)-j)*50,i*50)
         
 
-"""
-appeler la simulation "action".
-"""        
 
-for i in range(5):
-    x = listx[i]
-    y = listy[i]
-    d = listd[i]
-    
-    action(x,y,d)
+print (matrice)
 
-    
 """
-appeler la fin de la simulation.
+Appeler la fin de la simulation.
 """
 
 RobotFerm()

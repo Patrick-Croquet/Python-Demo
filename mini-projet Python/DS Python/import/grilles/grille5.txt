@@ -1,0 +1,6 @@
+grille 5
+
+format : 7*10
+taille case : 50*35
+depart : -200,-170
+

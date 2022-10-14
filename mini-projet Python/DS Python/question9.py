@@ -84,6 +84,13 @@ listx = [-50, -30, 0, 50, 130]
 listy = [-50, 30, 0, 200, 20]
 listd = [0, 0, 1, 1, 0]
 
+"""
+Liste du temps nécessire à la dépose des points
+"""
+listtd = []
+
+TotalTime = 0
+
 def action(x, y, d):
     """
     Déplacer le robot pour atteindre le point de coordonnées (x1, y1).
@@ -91,20 +98,27 @@ def action(x, y, d):
     
     Time = RobotDeplacer(x, y)
     
-    """
-    Afficher le temps nécessaire pour effectuer cette action
-    """
-    print("le temps nécessaire pour effectuer cette action : " + str(Time) + " ms")
-    
     
     if (d == 1):
         print("le robot dépose au point")
-        Time = RobotDeposer()
-        print("le temps nécessaire pour effectuer cette dépose : " + str(Time) + " ms")
+        Time += RobotDeposer()
+        
+        """
+        Afficher le temps nécessaire pour effectuer cette action (déplacement + dépose)
+        """
+        
+        print("le temps nécessaire pour effectuer cette action (déplacement + dépose) : " + str(Time) + " ms")
+
     else:
         print("le robot ne dépose pas au point")
         
-
+        """
+        Afficher le temps nécessaire pour effectuer cette action (déplacement)
+        """
+        
+        print("le temps nécessaire pour effectuer cette action (déplacement) : " + str(Time) + " ms")
+        
+    listtd.append(Time)
 """
 appeler la simulation "action".
 """        
@@ -116,9 +130,19 @@ for i in range(5):
     
     action(x,y,d)
 
-    
+print(listtd)
+
 """
-appeler la fin de la simulation.
+Temps total nécessaire pour effectuer ces opérations
+"""
+
+for i in range(len(listtd)):
+    TotalTime += listtd[i]
+    
+print("Temps total nécessaire pour effectuer ces opérations : " + str(TotalTime))
+
+"""
+Appeler la fin de la simulation.
 """
 
 RobotFerm()

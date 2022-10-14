@@ -1,0 +1,6 @@
+ma grille
+
+format : 3*4
+taille case : 50*50
+depart : -150,-150
+

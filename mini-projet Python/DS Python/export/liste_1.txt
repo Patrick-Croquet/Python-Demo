@@ -1,0 +1,32 @@
+Fichier de dépose
+
+Depart(-300,-300)
+
+Points :
+
+Passage(100,0)
+Depose(100,0) 
+Passage(100,50)
+Depose(100,50)
+Passage(100,100)
+Depose(100,100)
+Passage(100,150)
+Depose(100,150)
+Passage(50,150)
+Depose(50,150)
+Passage(50,100)
+Depose(50,100)
+Passage(50,50)
+Depose(50,50)
+Passage(50,0)
+Depose(50,0)
+Passage(0,0)
+Depose(0,0)
+Passage(0,50)
+Depose(0,50)
+Passage(0,100)
+Depose(0,100)
+Passage(0,150)
+Depose(0,150)
+
+Fin

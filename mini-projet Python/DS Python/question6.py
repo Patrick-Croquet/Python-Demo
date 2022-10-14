@@ -76,9 +76,13 @@ x1, y1 = 100, 300
 
 d = 1
 
-list1 = [-50, -30, 0, 50, 130]
-list2 = [-50, 30, 0, 200, 20]
-list3 = [0, 0, 1, 1, 0]
+"""
+Listes des coordonnées x et y, liste des points de passage (0) et de dépose(1) 
+"""
+
+listx = [-50, -30, 0, 50, 130]
+listy = [-50, 30, 0, 200, 20]
+listd = [0, 0, 1, 1, 0]
 
 
 def action(x, y, d):
@@ -96,6 +100,8 @@ def action(x, y, d):
     
     if (d == 1):
         print("le robot dépose au point")
+        Time = RobotDeposer()
+        print("le temps nécessaire pour effectuer cette dépose : " + str(Time) + " ms")
     else:
         print("le robot ne dépose pas au point")
         

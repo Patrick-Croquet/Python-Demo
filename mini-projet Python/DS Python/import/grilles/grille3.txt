@@ -1,0 +1,6 @@
+grille 3
+
+format : 6*8
+taille case : 40*40
+depart : -150,-150
+

@@ -62,63 +62,54 @@ def RobotDeposer():
 zone du code à remplir
 """
 
-"""
-Initialiser le robot en position (0,0)
-"""
+with open("grilles/grille2.txt", "r") as fichier:
+    for line in fichier:
+       if "format : " in line:
+           line1 = line.split()
+       if "taille case : " in line:
+           line2 = line.split()
+       if "depart : " in line:
+           line3 = line.split()
+           
+print(line1[2])
+print(line2[2])
+print(line3[2])
 
-RobotInit(0, 0)
+coord = line1[2].split('*')
+size = line2[3].split('*')
+departure = line3[2].split('*')
 
-"""
-Initialiser deux variables x1 et y1 valant 100 et 300 respectivement et une variable d pour que le robot dépose au point si la variable vaut 1.
-
-
-x1, y1 = 100, 300
-
-d = 1
-"""
-"""
-Listes des coordonnées x et y, liste des points de passage (0) et de dépose(1) 
-"""
-
-listx = [-50, -30, 0, 50, 130]
-listy = [-50, 30, 0, 200, 20]
-listd = [0, 0, 1, 1, 0]
-
-def action(x, y, d):
-    """
-    Déplacer le robot pour atteindre le point de coordonnées (x1, y1).
-    """
-    
-    Time = RobotDeplacer(x, y)
-    
-    """
-    Afficher le temps nécessaire pour effectuer cette action
-    """
-    print("le temps nécessaire pour effectuer cette action : " + str(Time) + " ms")
-    
-    
-    if (d == 1):
-        print("le robot dépose au point")
-        Time = RobotDeposer()
-        print("le temps nécessaire pour effectuer cette dépose : " + str(Time) + " ms")
-    else:
-        print("le robot ne dépose pas au point")
-        
+print(coord)
+print(size)
+print(departure)
 
 """
-appeler la simulation "action".
-"""        
+Initialiser deux variables n et m avec les coordonnées des fichiers grille.txt
 
-for i in range(5):
-    x = listx[i]
-    y = listy[i]
-    d = listd[i]
-    
-    action(x,y,d)
-
-    
 """
-appeler la fin de la simulation.
+
+n, m = int(coord[0]), int(coord[1])
+
+print(str(n) +" lignes et " + str(m) + " colonnes")
+
+"""
+Initialiser le robot en position de départ
+"""
+
+x0 = 0
+y0 = 0
+RobotInit(x0, y0)
+
+"""
+Initialiser une matrice (type numpy.array) remplie de 0 de taille n*m.
+"""
+
+matrice = np.zeros((n,m))
+
+print (matrice)
+
+"""
+Appeler la fin de la simulation.
 """
 
 RobotFerm()

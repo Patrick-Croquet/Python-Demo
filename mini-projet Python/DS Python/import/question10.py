@@ -66,59 +66,30 @@ zone du code à remplir
 Initialiser le robot en position (0,0)
 """
 
-RobotInit(0, 0)
+x0 = 0
+y0 = 0
+RobotInit(x0, y0)
+
+with open("grilles/grille2.txt", "r") as fichier:
+    for line in fichier:
+       if "format : " in line:
+           data = line.split()
+print(data[2])
+
+coord = data[2].split('*')
+print(coord)
+"""
+Initialiser deux variables n et m valant 3 et 4 respectivement.
 
 """
-Initialiser deux variables x1 et y1 valant 100 et 300 respectivement et une variable d pour que le robot dépose au point si la variable vaut 1.
 
+n, m = coord[0], coord[1]
 
-x1, y1 = 100, 300
+print(str(n) +" lignes et " + str(m) + " colonnes")
 
-d = 1
-"""
-"""
-Listes des coordonnées x et y, liste des points de passage (0) et de dépose(1) 
-"""
-
-listx = [-50, -30, 0, 50, 130]
-listy = [-50, 30, 0, 200, 20]
-listd = [0, 0, 1, 1, 0]
-
-def action(x, y, d):
-    """
-    Déplacer le robot pour atteindre le point de coordonnées (x1, y1).
-    """
-    
-    Time = RobotDeplacer(x, y)
-    
-    """
-    Afficher le temps nécessaire pour effectuer cette action
-    """
-    print("le temps nécessaire pour effectuer cette action : " + str(Time) + " ms")
-    
-    
-    if (d == 1):
-        print("le robot dépose au point")
-        Time = RobotDeposer()
-        print("le temps nécessaire pour effectuer cette dépose : " + str(Time) + " ms")
-    else:
-        print("le robot ne dépose pas au point")
-        
 
 """
-appeler la simulation "action".
-"""        
-
-for i in range(5):
-    x = listx[i]
-    y = listy[i]
-    d = listd[i]
-    
-    action(x,y,d)
-
-    
-"""
-appeler la fin de la simulation.
+Appeler la fin de la simulation.
 """
 
 RobotFerm()

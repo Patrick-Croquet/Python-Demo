@@ -66,23 +66,72 @@ zone du code à remplir
 Initialiser le robot en position (0,0)
 """
 
-RobotInit(0, 0)
+RobotInit(-150, -150)
 
 """
-Initialiser deux variables x1 et y1 valant 100 et 300 respectivement et une variable d pour que le robot dépose au point si la variable vaut 1.
+Initialiser deux variables n et m valant 3 et 4 respectivement.
 
-
-x1, y1 = 100, 300
-
-d = 1
-"""
-"""
-Listes des coordonnées x et y, liste des points de passage (0) et de dépose(1) 
 """
 
-listx = [-50, -30, 0, 50, 130]
-listy = [-50, 30, 0, 200, 20]
-listd = [0, 0, 1, 1, 0]
+n = int(input("Entrer le nombre de lignes :"))
+m = int(input("Entrer le nombre de colonnes :"))
+
+print(str(n) +" lignes et " + str(m) + " colonnes")
+
+"""
+Listes des coordonnées x et y 
+"""
+
+listx = []
+listy = []
+listd = []
+
+"""
+Initialiser une matrice (type numpy.array) remplie de 0 de taille n*m.
+"""
+
+matrice = np.zeros((n,m))
+
+print (matrice)
+
+   
+for j in range(0,n):
+    if (j%2 == 0):       # si je suis sur une ligne impaire je parcours de gauche à droite. Attention le premier élément d'un tableau est à l'indice 0
+        for i in range(0,m,1):
+            matrice[j,i] = 1
+            print(((n-1)-j)*50,i*50)
+            listy.append(((n-1)-j)*50)
+            listx.append(i*50)
+            listd.append(1)
+
+    else:
+        for i in range(m-1,-1,-1): # si je suis sur une ligne paire je parcours de droite à gauche. 
+            matrice[j,i] = 1 
+            print(((n-1)-j)*50,i*50)
+            listy.append(((n-1)-j)*50)
+            listx.append(i*50)
+            listd.append(1)
+            
+        
+
+
+print (matrice)
+
+
+"""
+Listes des coordonnées x et y 
+"""
+
+print(listx)
+print(listy)
+print(listd)
+
+"""
+Liste du temps nécessire à la dépose des points
+"""
+listtd = []
+
+TotalTime = 0
 
 def action(x, y, d):
     """
@@ -91,34 +140,51 @@ def action(x, y, d):
     
     Time = RobotDeplacer(x, y)
     
-    """
-    Afficher le temps nécessaire pour effectuer cette action
-    """
-    print("le temps nécessaire pour effectuer cette action : " + str(Time) + " ms")
-    
     
     if (d == 1):
         print("le robot dépose au point")
-        Time = RobotDeposer()
-        print("le temps nécessaire pour effectuer cette dépose : " + str(Time) + " ms")
+        Time += RobotDeposer()
+        
+        """
+        Afficher le temps nécessaire pour effectuer cette action (déplacement + dépose)
+        """
+        
+        print("le temps nécessaire pour effectuer cette action (déplacement + dépose) : " + str(Time) + " ms")
+
     else:
         print("le robot ne dépose pas au point")
         
-
+        """
+        Afficher le temps nécessaire pour effectuer cette action (déplacement)
+        """
+        
+        print("le temps nécessaire pour effectuer cette action (déplacement) : " + str(Time) + " ms")
+        
+    listtd.append(Time)
 """
 appeler la simulation "action".
 """        
 
-for i in range(5):
+for i in range(m*n):
     x = listx[i]
     y = listy[i]
     d = listd[i]
     
     action(x,y,d)
 
-    
+print(listtd)
+
 """
-appeler la fin de la simulation.
+Temps total nécessaire pour effectuer ces opérations
+"""
+
+for i in range(len(listtd)):
+    TotalTime += listtd[i]
+    
+print("Temps total nécessaire pour effectuer ces opérations : " + str(TotalTime))
+
+"""
+Appeler la fin de la simulation.
 """
 
 RobotFerm()
