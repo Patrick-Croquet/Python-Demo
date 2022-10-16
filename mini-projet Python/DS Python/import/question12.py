@@ -62,21 +62,39 @@ def RobotDeposer(t):
 zone du code à remplir
 """
 
-"""
-Initialiser le robot en position (0,0)
+with open("grilles/grille2.txt", "r") as fichier:
+    for line in fichier:
+       if "format : " in line:
+           line1 = line.split()
+       if "taille case : " in line:
+           line2 = line.split()
+       if "depart : " in line:
+           line3 = line.split()
+
+"""           
+print(line1[2])
+print(line2[2])
+print(line3[2])
 """
 
-x0 = -150
-y0 = -150
-RobotInit(x0, y0)
+coord = line1[2].split('*')
+size = line2[3].split('*')
+departure = line3[2].split(',')
+
+print(coord)
+print(size)
+print(departure)
 
 """
-Initialiser deux variables n et m valant 3 et 4 respectivement.
+Initialiser deux variables n et m avec les coordonnées des fichiers grille.txt
 
 """
 
-n = int(input("Entrer le nombre de lignes :"))
-m = int(input("Entrer le nombre de colonnes :"))
+n, m = int(coord[0]), int(coord[1])
+
+size = int(size[0])
+
+
 
 print(str(n) +" lignes et " + str(m) + " colonnes")
 
@@ -89,15 +107,23 @@ listy = []
 listd = []
 
 """
+Initialiser le robot en position de départ
+
+x0 = 0
+y0 = 0
+"""
+x0, y0 = int(departure[0]), int(departure[1])
+
+RobotInit(x0, y0)
+
+"""
 Initialiser une matrice (type numpy.array) remplie de 0 de taille n*m.
 """
 
 matrice = np.zeros((n,m))
-size = 80
 
 print (matrice)
 
-   
 for j in range(0,n):
     if (j%2 == 0):       # si je suis sur une ligne impaire je parcours de gauche à droite. Attention le premier élément d'un tableau est à l'indice 0
         for i in range(0,m,1):
@@ -176,7 +202,6 @@ Appeler la fin de la simulation.
 """
 
 RobotFerm()
-
 
 
 

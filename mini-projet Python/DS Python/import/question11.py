@@ -70,14 +70,16 @@ with open("grilles/grille2.txt", "r") as fichier:
            line2 = line.split()
        if "depart : " in line:
            line3 = line.split()
-           
+
+"""           
 print(line1[2])
 print(line2[2])
 print(line3[2])
+"""
 
 coord = line1[2].split('*')
 size = line2[3].split('*')
-departure = line3[2].split('*')
+departure = line3[2].split(',')
 
 print(coord)
 print(size)
