@@ -62,7 +62,7 @@ def RobotDeposer(t):
 zone du code à remplir
 """
 
-with open("grilles/grille2.txt", "r") as fichier:
+with open("grilles/grille3.txt", "r") as fichier:
     for line in fichier:
        if "format : " in line:
            line1 = line.split()
