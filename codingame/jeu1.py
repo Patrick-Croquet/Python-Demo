@@ -1,5 +1,16 @@
 import sys
 import math
+
+""" Entrée 27
+
+Sortie
+7
+11
+17
+19
+23
+"""
+
 def f(n, m={}):
     if n in m:
         return m[n]
